@@ -2,8 +2,6 @@
 const students=["Senthil","Kumar","Suresh","Raina","Monaj"];
 
 
-
-
 console.log(students);
 
 console.log(students.length);

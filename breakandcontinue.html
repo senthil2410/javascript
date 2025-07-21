@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break and continue</title>
+
+    <style>
+        body{
+            background-color: rgb(157, 190, 219);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .container
+        {
+            display: flex;
+            height: 500px;
+            width: 500px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin: 10px;
+            background-color: blanchedalmond;
+        }
+        input{
+            padding: 10px;
+            width:200px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button
+        {
+            padding: 10px;
+            width:150px;
+            border-radius: 5px;
+            margin: 10px;
+            background-color: rgb(80, 62, 39);
+        }
+
+        p{
+            font-weight: bolder;
+            margin-bottom: 10px;
+            text-shadow: 4px 4px 10px grey;
+        }
+
+
+    </style>
+</head>
+<body>
+
+      <div class="container">
+       <h1>Break</h1>
+
+       <div>
+        <input type="text" id="search" placeholder="Serach ">
+       </div>
+
+       <button type="button" id="breakbutton">Break</button>
+
+       <button type="button"  id="continuebutton">Continue</button>
+
+       <p id="para1"></p>
+
+       <p id="para2"></p>
+     </div>
+
+
+<script>
+
+    const employees=[
+        "Senthil",
+        "Kumar",
+        "Thangaraj",
+        "Ravi",
+        "Ram"
+    ];
+        const breakbutton = document.getElementById("breakbutton");
+
+        const continuebutton = document.getElementById("continuebutton");
+
+        const input = document.getElementById("search"); 
+
+        const para = document.getElementById("para1");
+
+        const para2 = document.getElementById("para2"); 
+
+    function searchByName()
+    {
+        const serachvalue=input.value.toLowerCase();
+        input.value="";
+        input.focus();
+
+        for(const employee of employees)
+         {
+             if(serachvalue===employee.toLowerCase())
+             {
+                console.log("Employee found",employee);
+                para.textContent=`The employee found ${serachvalue}`;
+                break;
+              
+             }
+         }
+
+         
+
+    }
+
+
+    function excludeEmployee()
+    {
+        const serachvalue=input.value.toLowerCase();
+        input.value="";
+        input.focus();
+
+         const remainingEmployees = [];
+
+        for(const employee of employees)
+         {
+
+             if(serachvalue===employee.toLowerCase())
+             {
+                
+                continue;
+              
+             }
+             
+        remainingEmployees.push(employee);
+   
+        }
+
+         para2.textContent = `The remaining  employee are:  ${remainingEmployees.join(", ")}`;
+
+}
+
+    breakbutton.addEventListener("click",searchByName);
+
+     continuebutton.addEventListener("click",excludeEmployee);
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+
+    <button type="button">Button</button>
+    <canvas ></canvas>
+
+
+    <script>
+        const button=document.querySelector('button');
+        const canvas=document.querySelector("canvas");
+        const ctx=canvas.getContext("2d");
+
+
+        window.addEventListener("DOMContentLoaded",()=>
+       {
+           canvas.width=document.documentElement.clientWidth;
+           canvas.height=document.documentElement.clientHeight;
+       })
+
+
+       function random(num)
+       {
+         return (Math.floor(Math.random()*num));
+       }
+
+        function draw()
+        {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for(let i=0;i<100;i++)
+           {
+                ctx.beginPath();
+                ctx.fillStyle="red";
+                ctx.arc(random(canvas.width),random(canvas.height),random(50),0,2*Math.PI);
+                ctx.fill();
+           }
+        }
+
+        button.addEventListener("click",draw);
+
+
+
+
+    </script> 
+</body>
+</html>

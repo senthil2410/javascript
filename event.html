@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-handler</title>
+</head>
+<body>
+    <button style="padding: 10px; width: 100px; margin: 10px;" onclick="bgcolor()">bg-colour</button>
+
+
+    <div class="container">
+     
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" id="name" placeholder="Enter the name"> <br>
+
+            <button type="submit">Submit</button>
+
+
+        </form>
+
+    </div>
+
+
+    <script>
+        const backgroundButton=document.querySelector('button');
+
+        function random(num)
+        {
+            return Math.floor(Math.random()*(num+1))
+        }
+
+        backgroundButton.addEventListener("click",()=>
+      {
+          const color=`rgb(${random(255)} ${random(255)} ${random(255)} )`;
+
+          document.body.style.backgroundColor=color;
+      })
+
+      function bgcolor()
+      {
+         const color=`rgb(${random(255)} ${random(255)} ${random(255)} )`;
+         backgroundButton.style.backgroundColor=color;
+      }
+
+      function handleSubmit(e)
+      {
+        e.preventDefault();
+         const name=document.getElementById('name');
+
+         alert(` The form is submiteed and the  student name is ${name.value}`);
+        
+      }
+    </script>
+</body>
+</html>
