@@ -42,6 +42,13 @@ greeting();
      console.log(bankBalance);
 })();
 
+
+
+(()=>
+{
+   console.log("IIFE functions");
+}) () ;
+
 // scopes
 
 const outer_x=2;

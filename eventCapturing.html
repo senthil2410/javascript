@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Capture</title>
+</head>
+<body>
+    <div class="container">
+        <button type="button" >Click</button>
+        <pre id="output"></pre>
+    </div>
+
+    <script>
+        const output=document.querySelector(".container");
+
+        const button=document.querySelector("button");
+
+    
+
+        function handleClick(e)
+        {
+         output.textContent+=`${e.currentTarget.tagName}  is clicked\n`;
+        }
+
+        output.addEventListener("click",handleClick,{capture:true});
+        button.addEventListener("click",handleClick,);
+
+        
+    </script>
+</body>
+</html>

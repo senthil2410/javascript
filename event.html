@@ -19,6 +19,11 @@
 
         </form>
 
+
+        <div id="outer">
+        <button id="inner">Click me</button>
+        </div>
+
     </div>
 
 
@@ -51,6 +56,18 @@
          alert(` The form is submiteed and the  student name is ${name.value}`);
         
       }
+
+      document.getElementById('outer').addEventListener('click', () => {
+
+        alert('Div clicked');
+        });
+
+        document.getElementById('inner').addEventListener('click', (e) => {
+         //e.stopPropagation(); 
+        alert('Button clicked!');
+
+        });
+
     </script>
 </body>
 </html>

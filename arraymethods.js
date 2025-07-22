@@ -153,3 +153,6 @@ console.log(upiPayments.every(payment=>payment>50));
 
 console.log(upiPayments.some(payment=>payment>50));
 
+
+
+
