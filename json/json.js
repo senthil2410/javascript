@@ -1,3 +1,4 @@
+const { jsx } = require("react/jsx-runtime");
 
 
 const jsonString = `{
@@ -15,7 +16,6 @@ console.log(user.age);
 console.log(user.skills[1]);  
 
 console.log(user.skills[2]);
-
 
 
 
@@ -57,7 +57,7 @@ const superHeroes={
       ]
     }
   ]
-}
+};
 
 
 console.log("Squad", superHeroes.squadName); 
@@ -65,5 +65,40 @@ console.log("Squad", superHeroes.squadName);
 
 console.log("Members", superHeroes.members.length); 
 
-console.log("")
+const jsonData=JSON.stringify(superHeroes);
+
+console.log(jsonData);
+
+const stringLiteral=JSON.parse(jsonData);
+
+console.log(stringLiteral);
+
+fetch("https://fakestoreapi.com/products/1")
+.then(response=>
+{
+      if(!response.ok)
+      {
+        throw new Error("There is an error while fecting the data");
+      }
+      return response.json();
+})
+.then(data=>
+{
+  console.log(data)
+})
+.catch(err=>
+{
+   console.log("error",err);
+});
+ 
+
+
+
+
+
+
+
+
+
+
 
